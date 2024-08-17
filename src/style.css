@@ -122,7 +122,8 @@ a {
     color: darkseagreen;
   }
 
-  &[href*="//"] {
+  &[href*="//"]
+  {
     display: inline-flex;
     align-items: center;
     gap: 0.1em;
