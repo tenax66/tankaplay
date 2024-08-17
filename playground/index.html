@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playground | TankaPlay</title>
+  <script src="https://kit.fontawesome.com/0d59881021.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="playground">
+  <header class="hidable">
+    <a href="#main" id="skip-to-content">Skip to content</a>
+    <div>
+      <h1 class="title play">(雪の|雨の)降る(町|道|海)</h1>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li class="current"><a href="/playground/">Playground</a></li>
+        <li><a href="https://github.com/tenax66/tankaplay/" target="_blank" rel="noopener">GitHub <i
+              class="fa-brands fa-github"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="focus-note invisible">Press <kbd>esc</kbd> or reload to exit focus mode.</div>
+    <button type="button" id="exitFocusBtn" class="invisible">Exit focus mode</button>
+    <dialog class="shortcuts modal">
+      <form method="dialog">
+        <button class="close-button" aria-label="Close dialog">
+          <div class="box">
+            <div class="glyph"></div>
+          </div>
+        </button>
+      </form>
+      <h2>Shortcuts</h2>
+      <div><kbd>i</kbd>: Focus text area</div>
+      <div><kbd>Cmd</kbd> + <kbd>Enter</kbd>: Parse</div>
+      <div><kbd>r</kbd>: Randomise</div>
+      <div><kbd>e</kbd>: Expand or collapse</div>
+      <div><kbd>s</kbd>: Snapshot</div>
+      <div><kbd>f</kbd>: Enter focus mode</div>
+      <div><kbd>Esc</kbd>: Escape focus mode</div>
+    </dialog>
+    <div class="switcher hidable">Viewing (input->viewInput|output->viewOutput|snapshots->viewSnapshots)[-]</div>
+    <div class="viewer view--input focus--input">
+      <div class="input-column column hidable">
+        <div class="input--toolbar">
+          <h2 class="small-heading">Samples</h2>
+          <div class="sample-list">
+            <button type="button" class="loadBtn" value="sample"><span class="file-name">sample<span class="file-ext">.txt</span></span></button>
+          </div>
+        </div>
+        <div class="input--toolbar toolbar">
+          <div class="toolbar-section">
+            <button type="button" id="uploadBtn">
+              Upload
+            </button>
+            <button type="button" id="saveBtn">
+              Save
+            </button>
+          </div>
+          <div class="toolbar-section">
+            <div class="checkbox-container">
+              <input type="checkbox" name="wrapText" id="wrapText" autocomplete="off">
+              <label for="wrapText">Wrap text</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-container">
+          <form action="" class="input-form">
+            <div class="textarea-container">
+              <label for="input" class="sr-only">Input text</label>
+              <textarea name="input" id="input" cols="40"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="toolbar toolbar--full">
+          <button type="submit" id="submitBtn">Parse</button>
+        </div>
+      </div>
+      <div class="output-column column">
+        <div class="text--toolbar toolbar hidable">
+          <div class="toolbar-section">
+            <button type="button" id="randomiseBtn" disabled autocomplete="off">
+              Randomise
+            </button>
+            <button type="button" id="detailBtn" disabled autocomplete="off">
+              Expand
+            </button>
+            <button type="button" id="clearBtn" disabled autocomplete="off">
+              Clear
+            </button>
+          </div>
+          <div class="toolbar-section">
+            <button type="button" id="focusBtn" disabled autocomplete="off">
+              Focus
+            </button>
+          </div>
+          <div class="toolbar-section">
+            <button type="button" id="helpBtn" autocomplete="off">
+              Shortcuts
+            </button>
+          </div>
+        </div>
+        <div class="text-container empty">
+          <div class="empty-text">Write something or load a sample, then click “Parse” to play with the text.</div>
+          <div class="text"></div>
+        </div>
+      </div>
+      <div class="snapshots-column column hidable">
+        <div class="snapshots--toolbar toolbar">
+          <button type="button" id="snapshotBtn" disabled autocomplete="off">
+            Snapshot
+          </button>
+          <button type="button" id="clearSnapshotsBtn" disabled autocomplete="off">
+            Clear
+          </button>
+        </div>
+        <div class="snapshots empty">
+          <div class="empty-text">Click “Snapshot” to record the current version of the text.</div>
+          <div class="snapshot">
+            <div class="snapshot--header">
+              <h2 class="snapshot--heading">Snapshot 00</h2>
+              <button class="snapshot--clear" aria-label="Clear snapshot">
+                <div class="box">
+                  <div class="glyph"></div>
+                </div>
+              </button>
+            </div>
+            <div class="snapshot--text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="hidable">
+    <a href="https://flatline.pages.dev"><i class="fa-solid fa-heart-pulse"></i></a>
+  </footer>
+
+  <script type="module" src="/src/playground.ts"></script>
+</body>
+
+</html>
