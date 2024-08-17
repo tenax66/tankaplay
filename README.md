@@ -4,6 +4,8 @@
 
 [ProsePlay](https://github.com/proseplay/proseplay.git)
 
+Copyright (c) 2023 Katherine Yang
+
 ## Usage
 
 Install:
